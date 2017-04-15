@@ -1,0 +1,9 @@
+<project>
+ <properties touchToMouse="1" packageName="com.yourdomain.yourapp" scaleMode="0" win_domain="giderosmobile.com" html5_mem="256" mouseToTouch="1" version="1.0" osx_category="5" osx_org="GiderosMobile" windowHeight="0" splash_h_image="" autorotation="0" app_name="" iosDevice="0" win_org="GiderosMobile" osx_domain="giderosmobile.com" html5_host="" retinaDisplay="0" logicalWidth="320" encryptCode="0" backgroundColor="#ffffff" build_number="1" windowWidth="0" app_icon="" encryptAssets="0" version_code="1" architecture="0" ios_bundle="com.yourdomain." disableSplash="0" mouseTouchOrder="0" tv_icon="" logicalHeight="480" exportMode="0" winrt_package="com.yourdomain.yourapp" fps="60" winrt_org="GiderosMobile" osx_bundle="com.yourdomain." android_template="0" orientation="0" splash_v_image="" splashScaleMode="0">
+  <imageScales/>
+  <plugins/>
+  <exports/>
+ </properties>
+ <file source="zweihander.png"/>
+ <file source="main.lua"/>
+</project>
