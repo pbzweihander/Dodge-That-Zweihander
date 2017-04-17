@@ -1,0 +1,3 @@
+
+World = Core.class(Stage)
+
