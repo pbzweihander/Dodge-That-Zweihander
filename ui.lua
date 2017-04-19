@@ -22,12 +22,15 @@ function UI:init()
 end
 
 function UI:on_enter_frame(event)
-	self.counter.text:setText(os.clock() - self.starttime)
+	self.counter.text:setText(round(os.clock() - self.starttime, 3))
 end
 
 function UI:on_touches_begin(event)
 	self.touching = true
-	self.touch = event.touch
+	self.touch = {}
+	self.touch.x = event.touch.x
+	self.touch.y = event.touch.y
+	self.touch.id = event.touch.id
 	
 	e = Event.new("move_input")
 	e.vector = Vector2.new(0, 0)
