@@ -32,9 +32,13 @@ b2.setScale(application:getDeviceWidth()/60)
 uieventdispatcher = UIEventDispatcher.new()
 ui = UI.new()
 
-level = Level.new(Shield, Zweihander, World)
+level = {}
 
 stage:addChild(ui)
+
+function init_level()
+	level = Level.new(Shield, Zweihander, World)
+end
 
 --[[
 local debugDraw = b2.DebugDraw.new()

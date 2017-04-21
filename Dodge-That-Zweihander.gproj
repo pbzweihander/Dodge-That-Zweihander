@@ -1,5 +1,5 @@
 <project>
- <properties mouseToTouch="1" osx_bundle="com.yourdomain." autorotation="0" app_name="" backgroundColor="#ffffff" html5_host="" splash_v_image="" html5_mem="256" logicalHeight="480" orientation="0" version_code="1" tv_icon="" iosDevice="0" app_icon="" fps="60" architecture="0" retinaDisplay="0" win_domain="giderosmobile.com" touchToMouse="1" windowHeight="0" win_org="GiderosMobile" packageName="com.yourdomain.yourapp" mouseTouchOrder="0" windowWidth="0" winrt_package="com.yourdomain.yourapp" ios_bundle="com.yourdomain." scaleMode="0" encryptCode="0" build_number="1" encryptAssets="0" osx_domain="giderosmobile.com" exportMode="0" disableSplash="0" android_template="0" splash_h_image="" osx_category="5" version="1.0" splashScaleMode="0" osx_org="GiderosMobile" logicalWidth="320" winrt_org="GiderosMobile">
+ <properties android_template="0" autorotation="0" osx_domain="giderosmobile.com" splashScaleMode="0" disableSplash="0" exportMode="0" version="1.0" win_domain="giderosmobile.com" splash_v_image="" html5_mem="256" app_name="" encryptCode="0" mouseTouchOrder="0" scaleMode="0" winrt_package="com.yourdomain.yourapp" packageName="com.yourdomain.yourapp" touchToMouse="1" mouseToTouch="1" windowHeight="0" build_number="1" winrt_org="GiderosMobile" retinaDisplay="0" logicalWidth="320" windowWidth="0" version_code="1" osx_org="GiderosMobile" app_icon="" html5_host="" win_org="GiderosMobile" logicalHeight="480" splash_h_image="" architecture="0" ios_bundle="com.yourdomain." osx_category="5" orientation="0" fps="60" iosDevice="0" encryptAssets="0" backgroundColor="#ffffff" osx_bundle="com.yourdomain." tv_icon="">
   <imageScales/>
   <plugins/>
   <exports/>
@@ -12,6 +12,7 @@
  <file source="world.lua"/>
  <file source="zweihander.lua"/>
  <file source="arrow.png"/>
+ <file source="mainscreen.png"/>
  <file source="shield1.png"/>
  <file source="shield2.png"/>
  <file source="shield3.png"/>

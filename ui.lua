@@ -10,6 +10,7 @@ function UI:init()
 	self.counter.text:setPosition(-self.counter.text:getWidth()/2, self.counter.text:getHeight())
 	self.counter:setPosition(application:getDeviceWidth()/2, 0)
 	self.counter:addChild(self.counter.text)
+	self.counter:setAlpha(0)
 	self:addChild(self.counter)
 	
 	self.arrow = Sprite.new()
@@ -25,6 +26,15 @@ function UI:init()
 	self.gameovertext:setAlpha(0)
 	self:addChild(self.gameovertext)
 	
+	self.mainscreen = Sprite.new()
+	self.mainscreen.sprite = Bitmap.new(Texture.new("mainscreen.png"))
+	self.mainscreen.sprite:setAnchorPoint(0.5, 0.5)
+	self.mainscreen.sprite:setScale(application:getDeviceWidth()/600 *2)
+	self.mainscreen:addChild(self.mainscreen.sprite)
+	self.mainscreen:setPosition(application:getDeviceWidth()/2, application:getDeviceHeight()/2)
+	self:addChild(self.mainscreen)
+	
+	self.gamestart = false
 	self.gameover = false
 	self.touching = false
 	self.touch = nil
@@ -37,29 +47,31 @@ function UI:init()
 end
 
 function UI:on_enter_frame(event)
-	if not self.gameover then
+	if not self.gameover and self.gamestart then
 		self.counter.text:setText(round(os.clock() - self.starttime, 3))
 	end
 end
 
 function UI:on_touches_begin(event)
-	self.touching = true
-	self.touch = {}
-	self.touch.x = event.touch.x
-	self.touch.y = event.touch.y
-	self.touch.id = event.touch.id
-	
-	e = Event.new("move_input")
-	e.vector = Vector2.new(0, 0)
-	uieventdispatcher:dispatchEvent(e)
-	
-	self.arrow:setPosition(self.touch.x, self.touch.y)
-	self.arrow:setRotation(0)
-	self.arrow:setAlpha(0.5)
+	if self.gamestart then
+		self.touching = true
+		self.touch = {}
+		self.touch.x = event.touch.x
+		self.touch.y = event.touch.y
+		self.touch.id = event.touch.id
+		
+		e = Event.new("move_input")
+		e.vector = Vector2.new(0, 0)
+		uieventdispatcher:dispatchEvent(e)
+		
+		self.arrow:setPosition(self.touch.x, self.touch.y)
+		self.arrow:setRotation(0)
+		self.arrow:setAlpha(0.5)
+	end
 end
 
 function UI:on_touches_move(event)
-	if self.touching and self.touch then
+	if self.touching and self.touch and self.gamestart then
 		if self.touch.id == event.touch.id then
 			e = Event.new("move_input")
 			e.vector = Vector2.new(event.touch.x - self.touch.x, event.touch.y - self.touch.y)
@@ -73,14 +85,21 @@ function UI:on_touches_move(event)
 end
 
 function UI:on_touches_end(event)
-	self.touch = nil
-	self.touching = false
-	
-	e = Event.new("move_input")
-	e.vector = Vector2.new(0, 0)
-	uieventdispatcher:dispatchEvent(e)
-	
-	self.arrow:setAlpha(0)
+	if self.gamestart then
+		self.touch = nil
+		self.touching = false
+		
+		e = Event.new("move_input")
+		e.vector = Vector2.new(0, 0)
+		uieventdispatcher:dispatchEvent(e)
+		
+		self.arrow:setAlpha(0)
+	else
+		self.gamestart = true
+		self.mainscreen:setAlpha(0)
+		self.counter:setAlpha(1)
+		init_level()
+	end
 end
 
 function UI:on_game_over(event)
