@@ -53,7 +53,7 @@ function UI:on_enter_frame(event)
 end
 
 function UI:on_touches_begin(event)
-	if self.gamestart then
+	if self.gamestart and not self.gameover then
 		self.touching = true
 		self.touch = {}
 		self.touch.x = event.touch.x
@@ -71,7 +71,7 @@ function UI:on_touches_begin(event)
 end
 
 function UI:on_touches_move(event)
-	if self.touching and self.touch and self.gamestart then
+	if self.touching and self.touch and self.gamestart and not self.gameover then
 		if self.touch.id == event.touch.id then
 			e = Event.new("move_input")
 			e.vector = Vector2.new(event.touch.x - self.touch.x, event.touch.y - self.touch.y)
@@ -86,14 +86,16 @@ end
 
 function UI:on_touches_end(event)
 	if self.gamestart then
-		self.touch = nil
-		self.touching = false
-		
-		e = Event.new("move_input")
-		e.vector = Vector2.new(0, 0)
-		uieventdispatcher:dispatchEvent(e)
-		
-		self.arrow:setAlpha(0)
+		if not self.gameover then
+			self.touch = nil
+			self.touching = false
+			
+			e = Event.new("move_input")
+			e.vector = Vector2.new(0, 0)
+			uieventdispatcher:dispatchEvent(e)
+			
+			self.arrow:setAlpha(0)
+		end
 	else
 		self.gamestart = true
 		self.mainscreen:setAlpha(0)
