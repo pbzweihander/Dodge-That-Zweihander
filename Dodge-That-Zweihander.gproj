@@ -1,19 +1,20 @@
 <project>
- <properties backgroundColor="#ffffff" scaleMode="0" packageName="com.yourdomain.yourapp" autorotation="0" version="1.0" build_number="1" mouseTouchOrder="0" osx_category="5" touchToMouse="1" orientation="0" windowHeight="0" windowWidth="0" android_template="0" osx_bundle="com.yourdomain." html5_mem="256" osx_org="GiderosMobile" disableSplash="0" logicalHeight="480" splashScaleMode="0" html5_host="" winrt_package="com.yourdomain.yourapp" fps="60" app_name="" winrt_org="GiderosMobile" mouseToTouch="1" exportMode="0" version_code="1" win_domain="giderosmobile.com" encryptAssets="0" architecture="0" win_org="GiderosMobile" iosDevice="0" app_icon="" encryptCode="0" osx_domain="giderosmobile.com" splash_h_image="" logicalWidth="320" splash_v_image="" ios_bundle="com.yourdomain." retinaDisplay="0" tv_icon="">
+ <properties mouseToTouch="1" osx_bundle="com.yourdomain." autorotation="0" app_name="" backgroundColor="#ffffff" html5_host="" splash_v_image="" html5_mem="256" logicalHeight="480" orientation="0" version_code="1" tv_icon="" iosDevice="0" app_icon="" fps="60" architecture="0" retinaDisplay="0" win_domain="giderosmobile.com" touchToMouse="1" windowHeight="0" win_org="GiderosMobile" packageName="com.yourdomain.yourapp" mouseTouchOrder="0" windowWidth="0" winrt_package="com.yourdomain.yourapp" ios_bundle="com.yourdomain." scaleMode="0" encryptCode="0" build_number="1" encryptAssets="0" osx_domain="giderosmobile.com" exportMode="0" disableSplash="0" android_template="0" splash_h_image="" osx_category="5" version="1.0" splashScaleMode="0" osx_org="GiderosMobile" logicalWidth="320" winrt_org="GiderosMobile">
   <imageScales/>
   <plugins/>
   <exports/>
  </properties>
- <file source="level.lua"/>
  <file source="Vector2.lua"/>
+ <file source="level.lua"/>
  <file source="main.lua"/>
  <file source="shield.lua"/>
+ <file source="ui.lua"/>
+ <file source="world.lua"/>
+ <file source="zweihander.lua"/>
+ <file source="arrow.png"/>
  <file source="shield1.png"/>
  <file source="shield2.png"/>
  <file source="shield3.png"/>
  <file source="shield4.png"/>
- <file source="ui.lua"/>
- <file source="world.lua"/>
- <file source="zweihander.lua"/>
  <file source="zweihander.png"/>
 </project>

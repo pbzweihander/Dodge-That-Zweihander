@@ -13,20 +13,24 @@ function Zweihander:init(texture, world)
 	self.hitbox = self.world.b2world:createBody{type=b2.DYNAMIC_BODY, position={x=0,y=0}}
 	self.hitbox.shape = b2.PolygonShape.new()
 	self.hitbox.shape:setAsBox(2 * math.sqrt(2), 56 * math.sqrt(2))
-	self.hitbox:createFixture{shape=self.hitbox.shape}
+	self.hitbox:createFixture{shape=self.hitbox.shape, density=0, filter={categoryBits=MASK_ZWEIHANDER, maskBits=MASK_SHIELD}}
 	
 	self.body = self.world.b2world:createBody{type=b2.DYNAMIC_BODY, position={x=0,y=0}}
 	self.body.shape = b2.CircleShape.new(0, 0, 2 * math.sqrt(2))
-	self.body:createFixture{shape=self.body.shape}
+	self.body:createFixture{shape=self.body.shape, filter={categoryBits=MASK_NONE, maskBits=0}}
 	
 	self.world.b2world:createJoint(b2.createRevoluteJointDef(self.hitbox, self.body, 0, 0))
 end
 
-Zweihander.setposition = Zweihander.setPosition
+Zweihander._setPosition = Zweihander.setPosition
 function Zweihander:setPosition(x, y)
 	self.body:setPosition(x, y)
 	self.hitbox:setPosition(x, y)
-	self:setposition(x, y)
+	self:_setPosition(x, y)
+end
+
+function Zweihander:applyForce(a, b, c, d)
+	self.body:applyForce(a, b, c, d)
 end
 
 function Zweihander:on_enter_frame(event)
@@ -57,7 +61,7 @@ function Zweihander:on_enter_frame(event)
 	px, py = self.world:getPlayer():getPosition()
 	mx, my = self.body:getPosition()
 	tv = Vector2.new(px - mx, py - my)
-	fv = tv:normalize() * SHIELD_GRAVITY / tv:magnitude()
+	fv = tv:normalize() * SHIELD_GRAVITY / math.sqrt(tv:magnitude())
 	
 	self.body:applyForce(fv.x, fv.y, mx, my)
 	

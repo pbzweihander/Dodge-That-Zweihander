@@ -74,7 +74,16 @@ end
 
 function Vector2:normalize()
 	m = self:magnitude()
-	return Vector2.new(self.x / m, self.y / m)
+	if m > 0 then
+		return Vector2.new(self.x / m, self.y / m)
+	else
+		return Vector2.new(0, 0)
+	end
+end
+
+function Vector2:rotate(radian)
+	return Vector2.new(self.x * math.cos(radian) + self.y * math.sin(radian),
+					   self.x * math.sin(radian) + self.y * math.cos(radian))
 end
 
 function Vector2:unpack()
