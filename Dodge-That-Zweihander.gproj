@@ -1,8 +1,21 @@
 <project>
- <properties android_template="0" autorotation="0" osx_domain="giderosmobile.com" splashScaleMode="0" disableSplash="0" exportMode="0" version="1.0" win_domain="giderosmobile.com" splash_v_image="" html5_mem="256" app_name="" encryptCode="0" mouseTouchOrder="0" scaleMode="0" winrt_package="com.yourdomain.yourapp" packageName="com.yourdomain.yourapp" touchToMouse="1" mouseToTouch="1" windowHeight="0" build_number="1" winrt_org="GiderosMobile" retinaDisplay="0" logicalWidth="320" windowWidth="0" version_code="1" osx_org="GiderosMobile" app_icon="" html5_host="" win_org="GiderosMobile" logicalHeight="480" splash_h_image="" architecture="0" ios_bundle="com.yourdomain." osx_category="5" orientation="0" fps="60" iosDevice="0" encryptAssets="0" backgroundColor="#ffffff" osx_bundle="com.yourdomain." tv_icon="">
+ <properties android_template="0" autorotation="0" osx_domain="giderosmobile.com" splashScaleMode="0" disableSplash="0" exportMode="0" version="1.0" win_domain="github.com/pbzweihander" splash_v_image="" html5_mem="256" app_name="Dodge-That-Zweihander" encryptCode="1" mouseTouchOrder="0" scaleMode="0" winrt_package="com.yourdomain.yourapp" packageName="com.yourdomain.yourapp" touchToMouse="1" mouseToTouch="1" windowHeight="0" build_number="1" winrt_org="GiderosMobile" retinaDisplay="0" logicalWidth="320" windowWidth="0" version_code="1" osx_org="GiderosMobile" app_icon="" html5_host="" win_org="Thomas Lee" logicalHeight="480" splash_h_image="" architecture="2" ios_bundle="com.yourdomain." osx_category="5" orientation="0" fps="60" iosDevice="0" encryptAssets="1" backgroundColor="#ffffff" osx_bundle="com.yourdomain." tv_icon="">
   <imageScales/>
   <plugins/>
-  <exports/>
+  <exports>
+   <export name="APK">
+    <property name="androidPath" value=""/>
+    <property name="androidSdk" value=""/>
+    <property name="androidTarget" value="19"/>
+    <property name="androidTools" value=""/>
+    <property name="buildApk" value="0"/>
+    <property name="deployApk" value="0"/>
+    <property name="javaPath" value=""/>
+    <property name="keyAlias" value=""/>
+    <property name="keyStore" value=""/>
+    <property name="packageName" value="lee.thomas.pbzweihander"/>
+   </export>
+  </exports>
  </properties>
  <file source="Vector2.lua"/>
  <file source="level.lua"/>
