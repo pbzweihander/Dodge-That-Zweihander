@@ -22,7 +22,12 @@ function Level:init(cplayer, cenemy, cworld)
 	self.world:setPlayer(self.player)
 	
 	stage:addChild(self.world)
-	
+	--[[
+	local debugDraw = b2.DebugDraw.new()
+	self.world.b2world:setDebugDraw(debugDraw)
+	--debugDraw:setPosition(application:getDeviceWidth()/2, application:getDeviceHeight()/2)
+	self.world:addChild(debugDraw)
+	]]--
 	self.lastspawntime = os.clock() - LEVEL_SPAWN_DELAY
 	
 	self:addEventListener(Event.ENTER_FRAME, self.on_enter_frame, self)

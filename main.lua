@@ -40,9 +40,3 @@ function init_level()
 	level = Level.new(Shield, Zweihander, World)
 end
 
---[[
-local debugDraw = b2.DebugDraw.new()
-level.world.b2world:setDebugDraw(debugDraw)
-debugDraw:setPosition(application:getDeviceWidth()/2, application:getDeviceHeight()/2)
-stage:addChild(debugDraw)
-]]--
