@@ -65,7 +65,7 @@ function Zweihander:on_enter_frame(event)
 	
 	self.body:applyForce(fv.x, fv.y, mx, my)
 	
-	self:setPosition(self.body:getPosition())
+	self:setPosition(self.hitbox:getPosition())
 	self.hitbox:setAngle(-math.atan2(self.body:getLinearVelocity()))
 	self:setRotation(math.deg(self.hitbox:getAngle()) + 180)
 end
