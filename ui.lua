@@ -68,6 +68,14 @@ function UI:on_touches_begin(event)
 		self.arrow:setRotation(0)
 		self.arrow:setAlpha(0.5)
 	end
+	
+	if self.gameover then
+		self.gameover = false
+		self.gameovertext:setAlpha(0)
+		destroy_level()
+		init_level()
+		self.starttime = os.clock()
+	end
 end
 
 function UI:on_touches_move(event)
@@ -95,12 +103,6 @@ function UI:on_touches_end(event)
 			uieventdispatcher:dispatchEvent(e)
 			
 			self.arrow:setAlpha(0)
-		else
-			self.gameover = false
-			self.gameovertext:setAlpha(0)
-			destroy_level()
-			init_level()
-			self.starttime = os.clock()
 		end
 	else
 		self.gamestart = true
