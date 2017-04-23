@@ -1,19 +1,19 @@
 <project>
- <properties android_template="1" iosDevice="0" app_name="Dodge-That-Zweihander" osx_bundle="com.yourdomain." osx_org="GiderosMobile" ios_bundle="com.yourdomain." winrt_package="com.yourdomain.yourapp" packageName="lee.thomas.dodge-that-zweihander" touchToMouse="1" fps="60" encryptAssets="1" retinaDisplay="0" logicalWidth="320" html5_mem="256" win_org="Thomas Lee" app_icon="" html5_host="" encryptCode="1" orientation="0" build_number="1" logicalHeight="480" win_domain="github.com/pbzweihander" osx_domain="giderosmobile.com" windowHeight="800" mouseTouchOrder="0" windowWidth="600" osx_category="5" architecture="8" exportMode="0" scaleMode="0" disableSplash="0" version_code="1" splash_v_image="" winrt_org="GiderosMobile" autorotation="0" tv_icon="" splash_h_image="" mouseToTouch="1" version="1.0" backgroundColor="#ffffff" splashScaleMode="0">
+ <properties encryptAssets="1" windowHeight="800" win_domain="github.com/pbzweihander" version_code="1" exportMode="0" backgroundColor="#ffffff" osx_org="GiderosMobile" splashScaleMode="0" mouseToTouch="1" architecture="2" windowWidth="600" disableSplash="0" version="1.0" osx_domain="giderosmobile.com" retinaDisplay="0" winrt_org="GiderosMobile" mouseTouchOrder="0" html5_mem="256" logicalHeight="480" ios_bundle="com.yourdomain." logicalWidth="320" splash_v_image="" packageName="lee.thomas.dodge_that_zweihander" osx_category="5" scaleMode="0" fps="60" tv_icon="" winrt_package="com.yourdomain.yourapp" encryptCode="1" android_template="1" app_name="Dodge-That-Zweihander" html5_host="" splash_h_image="" win_org="Thomas Lee" iosDevice="0" autorotation="0" app_icon="" touchToMouse="1" osx_bundle="com.yourdomain." orientation="0" build_number="1">
   <imageScales/>
   <plugins/>
   <exports>
    <export name="APK">
-    <property name="androidPath" value="C:/files/android-sdk"/>
-    <property name="androidSdk" value=""/>
-    <property name="androidTarget" value="19"/>
-    <property name="androidTools" value=""/>
-    <property name="buildApk" value="1"/>
-    <property name="deployApk" value="0"/>
-    <property name="javaPath" value="C:/Program Files/Java/jdk1.8.0_131"/>
-    <property name="keyAlias" value="thomas"/>
-    <property name="keyStore" value="C:/files/thomas.keystore"/>
-    <property name="packageName" value="lee.thomas.dodge-that-zweihander"/>
+    <property value="C:/files/android-sdk" name="androidPath"/>
+    <property value="" name="androidSdk"/>
+    <property value="19" name="androidTarget"/>
+    <property value="" name="androidTools"/>
+    <property value="1" name="buildApk"/>
+    <property value="0" name="deployApk"/>
+    <property value="C:/Program Files/Java/jdk1.8.0_131" name="javaPath"/>
+    <property value="thomas" name="keyAlias"/>
+    <property value="C:/files/thomas.keystore" name="keyStore"/>
+    <property value="lee.thomas.dodge_that_zweihander" name="packageName"/>
    </export>
   </exports>
  </properties>
