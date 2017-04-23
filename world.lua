@@ -43,3 +43,11 @@ function World:on_player_hit()
 	self:setScale(application:getDeviceWidth()/600*2)
 	uieventdispatcher:dispatchEvent(Event.new("game_over"))
 end
+
+function World:destroy()
+	for _, v in pairs(self.actors) do
+		v:destroy()
+	end
+	self:removeFromParent()
+	self = nil
+end

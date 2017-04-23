@@ -15,6 +15,7 @@ function Shield:init(texture, world)
 	self.body = self.world.b2world:createBody{type=b2.KINEMATIC_BODY, position={x=0,y=0}}
 	self.body.shape = b2.CircleShape.new(0, 0, 24)
 	self.body:createFixture{shape=self.body.shape, filter={categoryBits=MASK_SHIELD, maskBits=MASK_ZWEIHANDER}}
+	self.body.parent = self
 	
 	self.desired_vector = Vector2.new(0)
 	self.moving_vector = Vector2.new(0)
@@ -59,5 +60,22 @@ function Shield:on_enter_frame(event)
 end
 
 function Shield:on_begin_contact(event)
+	event.fixtureA:getBody().parent:match_position()
+	event.fixtureB:getBody().parent:match_position()
 	self.eventdispatcher:dispatchEvent(Event.new("player_hit"))
+end
+
+function Shield:destroy()
+	self.world.b2world:destroyBody(self.body)
+	self.body = nil
+	self.sprite:removeFromParent()
+	self:removeFromParent()
+	self.sprite = nil
+	self.world.b2world:removeEventListener(Event.BEGIN_CONTACT, self.on_begin_contact, self)
+	uieventdispatcher:removeEventListener("move_input", self.on_ui_move_input, self)
+	self = nil
+end
+
+function Shield:match_position()
+	self:_setPosition(self.body:getPosition())
 end

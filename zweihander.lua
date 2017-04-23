@@ -14,10 +14,12 @@ function Zweihander:init(texture, world)
 	self.hitbox.shape = b2.PolygonShape.new()
 	self.hitbox.shape:setAsBox(2 * math.sqrt(2), 56 * math.sqrt(2))
 	self.hitbox:createFixture{shape=self.hitbox.shape, density=0, filter={categoryBits=MASK_ZWEIHANDER, maskBits=MASK_SHIELD}}
+	self.hitbox.parent = self
 	
 	self.body = self.world.b2world:createBody{type=b2.DYNAMIC_BODY, position={x=0,y=0}}
 	self.body.shape = b2.CircleShape.new(0, 0, 2 * math.sqrt(2))
 	self.body:createFixture{shape=self.body.shape, filter={categoryBits=MASK_NONE, maskBits=0}}
+	self.body.parent = self
 	
 	self.world.b2world:createJoint(b2.createRevoluteJointDef(self.hitbox, self.body, 0, 0))
 end
@@ -65,7 +67,20 @@ function Zweihander:on_enter_frame(event)
 	
 	self.body:applyForce(fv.x, fv.y, mx, my)
 	
-	self:setPosition(self.hitbox:getPosition())
+	self:match_position()
 	self.hitbox:setAngle(-math.atan2(self.body:getLinearVelocity()))
 	self:setRotation(math.deg(self.hitbox:getAngle()) + 180)
+end
+
+function Zweihander:destroy()
+	self.world.b2world:destroyBody(self.body)
+	self.world.b2world:destroyBody(self.hitbox)
+	self.sprite:removeFromParent()
+	self.sprite = nil
+	self:removeFromParent()
+	self = nil
+end
+
+function Zweihander:match_position()
+	self:_setPosition(self.hitbox:getPosition())
 end

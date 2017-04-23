@@ -6,7 +6,7 @@ function UI:init()
 	self.starttime = os.clock()
 	self.counter = Sprite.new()
 	self.counter.text = TextField.new(nil, "0.000")
-	self.counter.text:setScale(application:getDeviceWidth()/600*2)
+	self.counter.text:setScale(application:getDeviceWidth()/600*4)
 	self.counter.text:setPosition(-self.counter.text:getWidth()/2, self.counter.text:getHeight())
 	self.counter:setPosition(application:getDeviceWidth()/2, 0)
 	self.counter:addChild(self.counter.text)
@@ -95,16 +95,24 @@ function UI:on_touches_end(event)
 			uieventdispatcher:dispatchEvent(e)
 			
 			self.arrow:setAlpha(0)
+		else
+			self.gameover = false
+			self.gameovertext:setAlpha(0)
+			destroy_level()
+			init_level()
+			self.starttime = os.clock()
 		end
 	else
 		self.gamestart = true
 		self.mainscreen:setAlpha(0)
 		self.counter:setAlpha(1)
 		init_level()
+		self.starttime = os.clock()
 	end
 end
 
 function UI:on_game_over(event)
 	self.gameover = true
+	self.arrow:setAlpha(0)
 	self.gameovertext:setAlpha(1)
 end

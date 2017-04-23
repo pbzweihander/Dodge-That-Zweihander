@@ -36,7 +36,17 @@ level = {}
 
 stage:addChild(ui)
 
+stage:addEventListener(Event.KEY_DOWN, function(event)
+    if event.keyCode == KeyCode.BACK then
+        application:exit()
+    end
+end)
+
 function init_level()
 	level = Level.new(Shield, Zweihander, World)
 end
 
+function destroy_level()
+	level:destroy()
+	collectgarbage("collect")
+end

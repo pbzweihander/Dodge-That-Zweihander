@@ -72,3 +72,8 @@ end
 function Level:on_game_over(event)
 	self.gameover = true
 end
+
+function Level:destroy()
+	self.world:destroy()
+	self = nil
+end
